@@ -1,87 +1,112 @@
 package com.caneksoft.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.caneksoft.dto.ProductoDTO;
+import com.caneksoft.entity.Categoria;
+import com.caneksoft.entity.EstadoProducto;
+import com.caneksoft.entity.Producto;
+import com.caneksoft.exceptions.BadRequestException;
+import com.caneksoft.exceptions.ResourceNotFoundException;
+import com.caneksoft.mapper.ProductoMapper;
+import com.caneksoft.repository.CategoriaRepository;
+import com.caneksoft.repository.ProductoRepository;
+import com.caneksoft.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.caneksoft.entity.EstadoProducto;
-import com.caneksoft.entity.Producto;
-import com.caneksoft.repository.ProductoRepository;
-import com.caneksoft.service.ProductoService;
-
-import lombok.SneakyThrows;
+import java.util.List;
+import java.util.Optional;
 
 @Service
-public class ProductoServiceImpl implements ProductoService{
+public class ProductoServiceImpl implements ProductoService {
 
-    // @Autowired
-    // private ProductoRepository productoRepository;
-    /* Nota: El uso de Autowired ya no es recomendable a partir de las nuevas versiones 
-       se debe usar desde el constructor ejemplo del uso de constructo */
-    
-       private final ProductoRepository productoRepository;
+    @Autowired
+    private ProductoRepository productoRepository;
 
-       public ProductoServiceImpl(ProductoRepository productoRepository){
-        this.productoRepository = productoRepository;
-       }
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
-       @Override
-       public Producto registraProducto(Producto producto) {
-            return productoRepository.save(producto);
-       }
+    @Autowired
+    private ProductoMapper productoMapper;
 
-       @Override
-       public List<Producto> listaProductos() {
-            return productoRepository.findAll();
-       }
+    @Override
+    public ProductoDTO registrarProducto(Long categoriaId, ProductoDTO productoDTO) {
+        Categoria categoria = categoriaRepository.findById(categoriaId)
+                .orElseThrow(() -> new ResourceNotFoundException("Categoría con ID " + categoriaId + " no encontrada"));
 
-       @Override
-       public Optional<Producto> buscarPorNombre(String nombre) {
-         return productoRepository.findByNombreProducto(nombre);
-       }
+        if(productoDTO.getPrecio() == null || productoDTO.getPrecio() <= 0){
+            throw new BadRequestException("El precio del producto debe ser mayor que 0");
+        }
 
-       @Override
-       public Optional<Producto> buscarPorId(Long idProducto) {
-        return productoRepository.findByIdProducto(idProducto);
-       }
+        Producto producto = productoMapper.toEntity(productoDTO);
+        producto.setCategoria(categoria);
 
-       @Override
-       @SneakyThrows
-       public Producto actualizaProducto(Long idProducto, Producto producto){
-            Producto productoExistente = productoRepository.findByIdProducto(idProducto).orElseThrow(()-> new Exception("Producto con ID: " + idProducto + "no encontrado"));
+        Producto productoGuardado = productoRepository.save(producto);
+        return productoMapper.toDTO(productoGuardado);
+    }
 
-            productoExistente.setNombreProducto(producto.getNombreProducto());
-            productoExistente.setDescripcion(producto.getDescripcion());
-            productoExistente.setPrecio(producto.getPrecio());
-            productoExistente.setCantidad(producto.getCantidad());
-            productoExistente.setEstadoProducto(producto.getEstadoProducto());
+    @Override
+    public List<ProductoDTO> listarProductos() {
+        List<Producto> productos = productoRepository.findAll();
+        return productos.stream()
+                .map(productoMapper::toDTO)
+                .toList();
+    }
 
-            Producto productoActualizado = productoRepository.save(productoExistente);
-            return productoActualizado;
-       }
+    @Override
+    public Optional<ProductoDTO> buscarPorNombre(String nombre) {
+        Optional<Producto> producto = productoRepository.findByNombreProducto(nombre);
+        return producto.map(productoMapper::toDTO);
+    }
 
-       @Override
-       @SneakyThrows
-       public void eliminarProducto(Long idProducto) {
-        productoRepository.findByIdProducto(idProducto).orElseThrow(()-> new Exception("Producto con ID: " + idProducto + "no encontrado"));
+    @Override
+    public Optional<ProductoDTO> buscarPorId(Long idProducto) {
+        Optional<Producto> producto = productoRepository.findByIdProducto(idProducto);
+        return producto.map(productoMapper::toDTO);
+    }
+
+    @Override
+    public ProductoDTO actualizarProducto(Long idProducto, ProductoDTO productoDTO){
+        Producto productoExistente = productoRepository.findByIdProducto(idProducto)
+                .orElseThrow(() -> new ResourceNotFoundException("Producto con ID " + idProducto + " no encontrado"));
+
+        productoExistente.setNombreProducto(productoDTO.getNombreProducto());
+        productoExistente.setDescripcion(productoDTO.getDescripcion());
+        productoExistente.setPrecio(productoDTO.getPrecio());
+        productoExistente.setCantidad(productoDTO.getCantidad());
+        productoExistente.setEstadoProducto(productoDTO.getEstado());
+
+        if(productoDTO.getCategoria() != null && productoDTO.getCategoria().getIdCategoria() != null){
+            Categoria categoria = categoriaRepository.findById(productoDTO.getCategoria().getIdCategoria())
+                    .orElseThrow(() -> new ResourceNotFoundException("Categoría no encontrada"));
+            productoExistente.setCategoria(categoria);
+        }
+
+        Producto productoActualizado = productoRepository.save(productoExistente);
+        return productoMapper.toDTO(productoActualizado);
+    }
+
+    @Override
+    public void eliminarProducto(Long idProducto) {
+        productoRepository.findByIdProducto(idProducto)
+                .orElseThrow(() -> new ResourceNotFoundException("Producto con ID " + idProducto + " no encontrado"));
         productoRepository.deleteById(idProducto);
-       }
+    }
 
-       @Override
-       @SneakyThrows
-       public Producto cambiarEstadoProducto(Long idProducto, EstadoProducto nuevoEstadoProducto) {
-        Producto productoExistente = productoRepository.findByIdProducto(idProducto).orElseThrow(()-> new Exception("Producto con ID: " + idProducto + "no encontrado"));
+    @Override
+    public ProductoDTO cambiarEstadoProducto(Long idProducto, EstadoProducto nuevoEstadoProducto) {
+        Producto productoExistente = productoRepository.findByIdProducto(idProducto)
+                .orElseThrow(() -> new ResourceNotFoundException("Producto con ID " + idProducto + " no encontrado"));
         productoExistente.setEstadoProducto(nuevoEstadoProducto);
-        return productoRepository.save(productoExistente);
-       }
 
-       @Override
-       public List<Producto> obteneProductosPorEstado(EstadoProducto estadoProducto) {
-        return productoRepository.findByEstado(estadoProducto);
-       }
+        Producto productoActualizado = productoRepository.save(productoExistente);
+        return productoMapper.toDTO(productoActualizado);
+    }
 
-
-       
+    @Override
+    public List<ProductoDTO> obtenerProductosPorEstado(EstadoProducto estadoProducto) {
+        List<Producto> productos = productoRepository.findByEstadoProducto(estadoProducto);
+        return productos.stream()
+                .map(productoMapper::toDTO)
+                .toList();
+    }
 }

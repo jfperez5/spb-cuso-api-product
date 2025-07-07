@@ -3,19 +3,24 @@ package com.caneksoft.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
-
+import com.caneksoft.dto.ProductoDTO;
 import com.caneksoft.entity.EstadoProducto;
-import com.caneksoft.entity.Producto;
 
 public interface ProductoService {
-    Producto registraProducto(Producto producto);
-    List<Producto> listaProductos();
-    Optional<Producto>buscarPorNombre(String nombre);
-    Optional<Producto>buscarPorId(Long idProducto);
-    Producto actualizaProducto(Long idProducto, Producto producto);
+    ProductoDTO registrarProducto(Long categoriaId, ProductoDTO productoDTO);
+
+    List<ProductoDTO> listarProductos();
+
+    Optional<ProductoDTO> buscarPorNombre(String nombre);
+
+    Optional<ProductoDTO> buscarPorId(Long idProducto);
+
+    ProductoDTO actualizarProducto(Long idProducto,ProductoDTO productoDTO);
+
     void eliminarProducto(Long idProducto);
-    Producto cambiarEstadoProducto(Long idProducto, EstadoProducto nuevoEstadoProducto);
-    List<Producto>obteneProductosPorEstado(EstadoProducto estadoProducto);
+
+    ProductoDTO cambiarEstadoProducto(Long idProducto, EstadoProducto nuevoEstadoProducto);
+
+    List<ProductoDTO> obtenerProductosPorEstado(EstadoProducto estadoProducto);
 
 }
