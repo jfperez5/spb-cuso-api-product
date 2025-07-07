@@ -20,12 +20,17 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_producto")
     private Long idProducto;
+
     @Column(name="nombre_producato", nullable = false)
     private String nombreProducto;
 
     private String descripcion;
+
     @Column (name="precio", nullable = false)
     private double precio;
+
+    @Column(name ="cantidad", nullable = false)
+    private int cantidad;
 
     @Enumerated(EnumType.STRING)
     @Column (name="estado_producto", nullable = false)
