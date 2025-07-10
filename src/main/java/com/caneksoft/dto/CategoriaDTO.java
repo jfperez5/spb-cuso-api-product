@@ -1,7 +1,5 @@
 package com.caneksoft.dto;
 
-import com.caneksoft.entity.Categoria;
-import com.caneksoft.entity.EstadoProducto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

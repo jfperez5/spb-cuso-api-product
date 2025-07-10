@@ -1,6 +1,5 @@
 package com.caneksoft.repository;
 
-import com.caneksoft.dto.ProductoDTO;
 import com.caneksoft.entity.EstadoProducto;
 import com.caneksoft.entity.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
