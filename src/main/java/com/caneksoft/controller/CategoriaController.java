@@ -1,7 +1,6 @@
 package com.caneksoft.controller;
 
 import com.caneksoft.dto.CategoriaDTO;
-import com.caneksoft.entity.Categoria;
 import com.caneksoft.exceptions.ResourceNotFoundException;
 import com.caneksoft.service.CategoriaService;
 import jakarta.validation.Valid;
