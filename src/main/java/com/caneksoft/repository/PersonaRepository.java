@@ -7,5 +7,7 @@ import com.caneksoft.entity.Persona;
 
 @Repository
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
+
     public Persona findByUserAndPassword(String user, String password);
+    
 }

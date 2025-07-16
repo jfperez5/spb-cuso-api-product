@@ -43,15 +43,15 @@ public class PersonaController {
         return personaServiceImpl.crearPersona(persona);
     }
 
-    @DeleteMapping("/persona/{id}")
-    public void borrarPersona(@PathVariable Long id){
-        personaServiceImpl.borrarPersona(id);
-    }
-    
     @PutMapping("/persona")
     public void modificarPersona(@RequestBody Persona persona){
         personaServiceImpl.modificarPersona(persona);
     }
+
+    @DeleteMapping("/persona/{id}")
+    public void borrarPersona(@PathVariable Long id){
+        personaServiceImpl.borrarPersona(id);
+    }  
 
     @PostMapping("/login")
     public PersonaDTO login (@RequestBody Persona persona){

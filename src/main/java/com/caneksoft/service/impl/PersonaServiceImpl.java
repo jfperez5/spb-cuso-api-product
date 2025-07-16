@@ -13,7 +13,7 @@ import com.caneksoft.repository.PersonaRepository;
 public class PersonaServiceImpl {
     @Autowired
     PersonaRepository personaRepo;
-
+    
     public Persona crearPersona(Persona persona){
         return (Persona) personaRepo.save(persona);
     }
