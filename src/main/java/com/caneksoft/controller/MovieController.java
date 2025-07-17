@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.caneksoft.entity.Movie;
 import com.caneksoft.repository.MovieRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -74,13 +73,25 @@ public class MovieController {
         return ResponseEntity.ok(savedMove);
      }
 
+    
+    @CrossOrigin
+     @GetMapping("/vote/{id}/{rating}")
+     public ResponseEntity<Movie> voteMovie(@PathVariable Long id, @PathVariable double rating){
+     if(!movieRepository.existsById(id)){
+        return ResponseEntity.notFound().build();
+     }
 
+     Optional<Movie> optional = movieRepository.findById(id);
+     Movie movie = optional.get();
 
+    double newRating = ( (movie.getVotes() * movie.getRating()) + rating ) /(movie.getVotes());
 
+     movie.setVotes(movie.getVotes() + 1);
+     movie.setRating(newRating);
 
-
-
+     Movie savedMove = movieRepository.save(movie);
+     return ResponseEntity.ok(savedMove);
+    }
 }
-
 
 // @CrossOrigin se establece para indicar a Spring Boot que este metodo se podrá usar desde sistema fuera de spring ejm: React, Vue, Angular, etc.
