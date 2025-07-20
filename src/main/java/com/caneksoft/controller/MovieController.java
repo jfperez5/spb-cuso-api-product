@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.caneksoft.entity.Movie;
 import com.caneksoft.repository.MovieRepository;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/v1/movies")
@@ -68,7 +69,7 @@ public class MovieController {
             return ResponseEntity.notFound().build();
         }
 
-        updatedMovie.setId(id);
+        updatedMovie.setId(id)
         Movie savedMove = movieRepository.save(updatedMovie);
         return ResponseEntity.ok(savedMove);
      }
