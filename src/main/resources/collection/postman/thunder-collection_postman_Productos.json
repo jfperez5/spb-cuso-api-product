@@ -1,0 +1,195 @@
+{
+    "info": {
+        "_postman_id": "0e935c82-f822-4b8a-a178-969346005ccf",
+        "name": "Productos",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getProductos",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos",
+                    "path": [
+                        "api",
+                        "productos"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "getProductoById",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos/buscar/id/1",
+                    "path": [
+                        "api",
+                        "productos",
+                        "buscar",
+                        "id",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "getProductoByName",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos/buscar/nombre/\"mouse\"",
+                    "path": [
+                        "api",
+                        "productos",
+                        "buscar",
+                        "nombre",
+                        "\"mouse\""
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "addProductos",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos/registrar/3?nombreProducto=Prueba fsdfsdfds&descripcion=prueba asdasd2&precio=658.55&cantidad=10&estado=DISPONIBLE",
+                    "query": [
+                        {
+                            "key": "key",
+                            "value": "",
+                            "disabled": true
+                        },
+                        {
+                            "key": "nombreProducto",
+                            "value": "Prueba fsdfsdfds"
+                        },
+                        {
+                            "key": "descripcion",
+                            "value": "prueba asdasd2"
+                        },
+                        {
+                            "key": "precio",
+                            "value": "658.55"
+                        },
+                        {
+                            "key": "cantidad",
+                            "value": "10"
+                        },
+                        {
+                            "key": "estado",
+                            "value": "DISPONIBLE"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "api",
+                        "productos",
+                        "registrar",
+                        "3"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "updateProducto",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos/actualizar/2",
+                    "path": [
+                        "api",
+                        "productos",
+                        "actualizar",
+                        "2"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"nombreProducto\":\"Practica tres\",\n  \"descripcion\":\" Practica 3\",\n  \"precio\":123.52,\n  \"cantidad\": 5,\n  \"estado\":\"DISPONIBLE\"\n}"
+                }
+            }
+        },
+        {
+            "name": "deleteProducto",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos/3",
+                    "path": [
+                        "api",
+                        "productos",
+                        "3"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "getProductoByEstado",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:8080/api/productos/estado/1",
+                    "path": [
+                        "api",
+                        "productos",
+                        "estado",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"estadoProducto\":\"NO_DISPONIBLE\"\n}"
+                }
+            }
+        }
+    ]
+}

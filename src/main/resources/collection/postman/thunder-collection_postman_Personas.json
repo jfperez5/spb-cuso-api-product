@@ -1,0 +1,154 @@
+{
+    "info": {
+        "_postman_id": "5060affb-5a44-46a2-aa67-1b5841c42d38",
+        "name": "Personas",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getPersonas",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/personas",
+                    "path": [
+                        "api",
+                        "v1",
+                        "personas"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "getPersonaById",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/personas/1",
+                    "path": [
+                        "api",
+                        "v1",
+                        "personas",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "addPersona",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/personas",
+                    "path": [
+                        "api",
+                        "v1",
+                        "personas"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"ubicacion\":\"Av 27 de Febrero Primero de Mayo\",\n  \"position\":\"Developent\",\n  \"fullname\":\"Josué Francisco Pérez\",\n  \"image\": \"https://img.freepik.com/foto-gratis/que-hermosa_1203-2633.jpg?semt=ais_hybrid&w=740\",\n  \"user\":\"jperez\",\n  \"password\":\"Mi$passwork\"\n}"
+                }
+            }
+        },
+        {
+            "name": "updatePersona",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/personas",
+                    "path": [
+                        "api",
+                        "v1",
+                        "personas"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"id\": 1,\n  \"ubicacion\": \"Heros del 47 S/N\",\n  \"position\": \"Developent\",\n  \"fullname\": \"Josué Francisco Pérez\",\n  \"image\": \"https://img.freepik.com/foto-gratis/que-hermosa_1203-2633.jpg?semt=ais_hybrid&w=740\",\n  \"user\": \"jperez\",\n  \"password\": \"Mi$passwork\"\n}"
+                }
+            }
+        },
+        {
+            "name": "deleteProducto",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/personas/5",
+                    "path": [
+                        "api",
+                        "v1",
+                        "personas",
+                        "5"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "LoginPersona",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/personas/login",
+                    "path": [
+                        "api",
+                        "v1",
+                        "personas",
+                        "login"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"user\":\"jperez\",\n  \"password\":\"Mi$passwork\"\n}"
+                }
+            }
+        }
+    ]
+}

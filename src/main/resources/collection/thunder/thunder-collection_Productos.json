@@ -1,0 +1,138 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Productos",
+    "collectionId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+    "dateExported": "2025-07-21T03:42:31.935Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c7d3c04f-635e-46fd-b4ff-023efc47be58",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "getProductos",
+            "url": "http://localhost:8080/api/productos",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-07-20T15:35:28.156Z",
+            "modified": "2025-07-20T15:35:49.622Z",
+            "headers": []
+        },
+        {
+            "_id": "9d84e6ef-5426-475c-96fb-7ab6386c695e",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "getProductoById",
+            "url": "http://localhost:8080/api/productos/buscar/id/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-07-20T15:36:10.117Z",
+            "modified": "2025-07-20T15:37:08.777Z",
+            "headers": []
+        },
+        {
+            "_id": "ca95ff0d-0875-4b51-9a66-10632738ab71",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "getProductoByName",
+            "url": "http://localhost:8080/api/productos/buscar/nombre/\"mouse\"",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-07-20T15:38:04.114Z",
+            "modified": "2025-07-20T15:38:37.023Z",
+            "headers": []
+        },
+        {
+            "_id": "ea3cf053-8756-4476-a2c4-cc5b89420f13",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "addProductos",
+            "url": "http://localhost:8080/api/productos/registrar/3?nombreProducto=Prueba fsdfsdfds&descripcion=prueba asdasd2&precio=658.55&cantidad=10&estado=DISPONIBLE",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2025-07-20T15:44:36.633Z",
+            "modified": "2025-07-20T23:51:50.983Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "key",
+                    "value": "",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "nombreProducto",
+                    "value": "Prueba fsdfsdfds",
+                    "isPath": false
+                },
+                {
+                    "name": "descripcion",
+                    "value": "prueba asdasd2",
+                    "isPath": false
+                },
+                {
+                    "name": "precio",
+                    "value": "658.55",
+                    "isPath": false
+                },
+                {
+                    "name": "cantidad",
+                    "value": "10",
+                    "isPath": false
+                },
+                {
+                    "name": "estado",
+                    "value": "DISPONIBLE",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "08bea717-4175-41b2-878a-c40e66489320",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "updateProducto",
+            "url": "http://localhost:8080/api/productos/actualizar/2",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2025-07-20T21:27:09.499Z",
+            "modified": "2025-07-21T00:51:27.824Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombreProducto\":\"Practica tres\",\n  \"descripcion\":\" Practica 3\",\n  \"precio\":123.52,\n  \"cantidad\": 5,\n  \"estado\":\"DISPONIBLE\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "96a02854-2625-4336-946e-16f07aa4d4ec",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "deleteProducto",
+            "url": "http://localhost:8080/api/productos/3",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2025-07-20T23:44:56.435Z",
+            "modified": "2025-07-20T23:45:59.804Z",
+            "headers": []
+        },
+        {
+            "_id": "6e807a4d-c80d-421e-8906-c00b3d9466ef",
+            "colId": "03622c0b-355b-486a-85bd-ea7b42d45c7e",
+            "containerId": "",
+            "name": "getProductoByEstado",
+            "url": "http://localhost:8080/api/productos/estado/1",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2025-07-21T00:57:10.346Z",
+            "modified": "2025-07-21T01:38:44.769Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"estadoProducto\":\"NO_DISPONIBLE\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "5vOgAk8ngj4vth4UVgcW5o4U9rjwsbEAr7HJy3XQ6mYGwgZXV0GGYlth_KHObc02mQZmfMsVoxWkxhMgGo1UUg"
+}

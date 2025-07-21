@@ -1,0 +1,98 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Personas",
+    "collectionId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+    "dateExported": "2025-07-21T03:38:53.158Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "840ec3d1-7aa3-41f5-91b8-2551146fa68b",
+            "colId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+            "containerId": "",
+            "name": "getPersonas",
+            "url": "http://localhost:8080/api/v1/personas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-07-21T03:13:47.511Z",
+            "modified": "2025-07-21T03:14:40.143Z",
+            "headers": []
+        },
+        {
+            "_id": "829b027b-10f9-4d50-8131-cf79a1baef9e",
+            "colId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+            "containerId": "",
+            "name": "getPersonaById",
+            "url": "http://localhost:8080/api/v1/personas/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-07-21T03:15:06.512Z",
+            "modified": "2025-07-21T03:15:21.867Z",
+            "headers": []
+        },
+        {
+            "_id": "ac3f2a57-2119-4cd6-b745-0658df2f7407",
+            "colId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+            "containerId": "",
+            "name": "addPersona",
+            "url": "http://localhost:8080/api/v1/personas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-07-21T03:15:42.788Z",
+            "modified": "2025-07-21T03:24:29.040Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"ubicacion\":\"Av 27 de Febrero Primero de Mayo\",\n  \"position\":\"Developent\",\n  \"fullname\":\"Josué Francisco Pérez\",\n  \"image\": \"https://img.freepik.com/foto-gratis/que-hermosa_1203-2633.jpg?semt=ais_hybrid&w=740\",\n  \"user\":\"jperez\",\n  \"password\":\"Mi$passwork\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4eea763a-c337-4246-9b67-7576dc77aba1",
+            "colId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+            "containerId": "",
+            "name": "updatePersona",
+            "url": "http://localhost:8080/api/v1/personas",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2025-07-21T03:19:59.565Z",
+            "modified": "2025-07-21T03:24:57.128Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"ubicacion\": \"Heros del 47 S/N\",\n  \"position\": \"Developent\",\n  \"fullname\": \"Josué Francisco Pérez\",\n  \"image\": \"https://img.freepik.com/foto-gratis/que-hermosa_1203-2633.jpg?semt=ais_hybrid&w=740\",\n  \"user\": \"jperez\",\n  \"password\": \"Mi$passwork\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "771062ef-bbbe-4671-a7af-7a754e37265a",
+            "colId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+            "containerId": "",
+            "name": "deleteProducto",
+            "url": "http://localhost:8080/api/v1/personas/5",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2025-07-21T03:31:06.731Z",
+            "modified": "2025-07-21T03:32:04.130Z",
+            "headers": []
+        },
+        {
+            "_id": "d4be7ff3-0323-4add-82b5-ec86ce9d491b",
+            "colId": "ff8598e7-ef1b-4c04-a221-bd5f72ff8af1",
+            "containerId": "",
+            "name": "LoginPersona",
+            "url": "http://localhost:8080/api/v1/personas/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2025-07-21T03:33:06.276Z",
+            "modified": "2025-07-21T03:34:42.110Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user\":\"jperez\",\n  \"password\":\"Mi$passwork\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "TvEEJYH8ZovARuUnhhgUheRvNDZ_y3Fx1OmM0DxOaDBGkNSBd11qQ2VkdPhA5sGGWgIVL2hHK3qS4eofUxxRDw"
+}
