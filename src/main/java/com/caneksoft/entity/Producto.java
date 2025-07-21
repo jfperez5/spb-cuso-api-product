@@ -36,3 +36,11 @@ public class Producto {
     @JoinColumn(name = "id_categoria",referencedColumnName = "id_categoria")
     private Categoria categoria;
 }
+
+
+/* 
+ * El Mejor Curso de APIs REST con Spring Boot desde Cero (2025)
+ * by  La Tecnología Avanza
+ * https://youtu.be/Ajfz5Zztsv8
+ * 01/06/2025
+*/

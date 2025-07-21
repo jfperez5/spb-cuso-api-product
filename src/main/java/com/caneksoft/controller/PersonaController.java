@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,39 +17,38 @@ import com.caneksoft.dto.PersonaDTO;
 import com.caneksoft.entity.Persona;
 import com.caneksoft.service.impl.PersonaServiceImpl;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/personas")
 public class PersonaController {
 
     @Autowired
     PersonaServiceImpl personaServiceImpl;
 
-    @GetMapping("/persona")
-    @RequestBody
+    @GetMapping
+    @RequestMapping
     public List<Persona> listarPersonas(){
         return personaServiceImpl.listarPersonas();
     }
 
-    @GetMapping("/persona/{id}")
+    @GetMapping("/{id}")
     @ResponseBody
     public Persona buscarPersonaPorId(@PathVariable Long id){
         return personaServiceImpl.buscarPersonaPorId(id);
     }
 
-    @PostMapping("/persona")
+    @PostMapping
     @ResponseBody
     public  Persona crearPersona(@RequestBody Persona persona){
         return personaServiceImpl.crearPersona(persona);
     }
 
-    @PutMapping("/persona")
+    @PutMapping
     public void modificarPersona(@RequestBody Persona persona){
         personaServiceImpl.modificarPersona(persona);
     }
 
-    @DeleteMapping("/persona/{id}")
+    @DeleteMapping("/{id}")
     public void borrarPersona(@PathVariable Long id){
         personaServiceImpl.borrarPersona(id);
     }  

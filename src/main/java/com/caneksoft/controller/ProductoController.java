@@ -29,12 +29,16 @@ public class ProductoController {
 
     @PostMapping("/registrar/{categoriaId}")
     public ResponseEntity<?> registrarProducto(
-            @PathVariable Long categoriaId,
+            @PathVariable String categoriaId,
             @RequestParam("nombreProducto") String nombreProducto,
             @RequestParam("descripcion") String descripcion,
             @RequestParam("precio") Double precio,
             @RequestParam("cantidad") int cantidad,
             @RequestParam("estado") EstadoProducto estado) {
+
+        System.out.println("Recibido:");
+        System.out.println(categoriaId);    
+        System.out.println(nombreProducto);
 
         ProductoDTO productoDTO = new ProductoDTO();
         productoDTO.setNombreProducto(nombreProducto);
@@ -42,9 +46,10 @@ public class ProductoController {
         productoDTO.setPrecio(precio);
         productoDTO.setCantidad(cantidad);
         productoDTO.setEstado(estado);
-
-        ProductoDTO productoBBDD = productoService.registrarProducto(categoriaId,productoDTO);
+        
+        ProductoDTO productoBBDD = productoService.registrarProducto(Long.parseLong(categoriaId), productoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(productoBBDD);
+    
     }
 
     @GetMapping
@@ -69,25 +74,18 @@ public class ProductoController {
 
     @PutMapping("/actualizar/{idProducto}")
     public ResponseEntity<?> actualizarProducto(
-            @PathVariable Long idProducto,
-            @RequestParam("nombreProducto") String nombreProducto,
-            @RequestParam("descripcion") String descripcion,
-            @RequestParam("precio") Double precio,
-            @RequestParam("cantidad") int cantidad,
-            @RequestParam("estado") EstadoProducto estado) {
+            @PathVariable Long idProducto,  @RequestBody ProductoDTO productoDTO  ){
+                   
         try {
-            ProductoDTO productoDTO = new ProductoDTO();
-            productoDTO.setNombreProducto(nombreProducto);
-            productoDTO.setDescripcion(descripcion);
-            productoDTO.setPrecio(precio);
-            productoDTO.setCantidad(cantidad);
-            productoDTO.setEstado(estado);
-
+            if (productoDTO.getNombreProducto() == null || productoDTO.getNombreProducto().isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El nombre del producto es obligatorio");
+            }
             ProductoDTO productoActualizado = productoService.actualizarProducto(idProducto, productoDTO);
             return ResponseEntity.ok(productoActualizado);
         } catch (Exception exception) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
         }
+
     }
 
     @DeleteMapping("/{idProducto}")
@@ -103,12 +101,14 @@ public class ProductoController {
     @PutMapping("/estado/{idProducto}")
     public ResponseEntity<?> cambiarEstadoProducto(@PathVariable Long idProducto,
             @RequestBody EstadoProducto estadoProducto) {
+       
         try {
             ProductoDTO productoActualizado = productoService.cambiarEstadoProducto(idProducto, estadoProducto);
             return ResponseEntity.ok(productoActualizado);
         } catch (Exception exception) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
         }
+        // return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("Funcionalidad no implementada");
     }
 
     @GetMapping("/estado/{estado}")

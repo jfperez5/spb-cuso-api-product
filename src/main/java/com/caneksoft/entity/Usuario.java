@@ -14,25 +14,21 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="movies")
-public class Movie {
+@Table(name="usuarios")
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable=false)
     private Long id;
-
-    private String title;
-    private int year;
-    private int votes;
-    private double rating;
-    
-    @Column(name="imagen_url")
-    private String imagenUrl;
+    private String nombre;
+    private String email;
+    private int prioridad;
 }
 
-
-// Dominando API REST con Spring Boot: Taller Completo | GOGODEV
-// By GOGODEV
-// https://youtu.be/J9OiXcTuzak?list=TLPQMjAwNzIwMjUfpZ5NqTcUmA
-// time: 3:16:39
-
+/* 
+ * Desarrollar Api Rest con Java Spring Boot, explicación completa en 20 min.
+ * by DATACLOUDER 
+   Fecha: 3/06/2020  time:20.56 
+ * https://youtu.be/vTu2HQrXtyw?list=TLPQMTkwNzIwMjUlJoMrAB6GhQ
+ * 
+*/

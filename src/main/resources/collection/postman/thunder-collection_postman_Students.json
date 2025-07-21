@@ -1,0 +1,146 @@
+{
+    "info": {
+        "_postman_id": "9dc2caea-80d6-40a2-bc37-2923d95734bb",
+        "name": "Students",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getStudents",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/students",
+                    "path": [
+                        "api",
+                        "v1",
+                        "students"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "addStudent",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/students",
+                    "path": [
+                        "api",
+                        "v1",
+                        "students"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"firstName\":\"Miguel Angel\",\n  \"lastName\":\"Rojas Molina\",\n  \"email\":\"miguel_molina@gmail.com\"\n}"
+                }
+            }
+        },
+        {
+            "name": "getStudentById",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/students/1",
+                    "path": [
+                        "api",
+                        "v1",
+                        "students",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "updateStudent",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/students/1",
+                    "path": [
+                        "api",
+                        "v1",
+                        "students",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"studentId\": 1,\n  \"firstName\": \"Josué Francisco\",\n  \"lastName\": \"Pérez Pérez\",\n  \"email\": \"jfp_perez@hotmail.com\"\n}"
+                }
+            }
+        },
+        {
+            "name": "delStudent",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/students/1",
+                    "path": [
+                        "api",
+                        "v1",
+                        "students",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "total_alumnos",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/students/count_students",
+                    "path": [
+                        "api",
+                        "v1",
+                        "students",
+                        "count_students"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Students",
+    "collectionId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+    "dateExported": "2025-07-20T15:28:23.749Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e2d757c1-edda-4eb4-a005-7d484420bd13",
+            "colId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+            "containerId": "",
+            "name": "getStudents",
+            "url": "http://localhost:8080/api/v1/students",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-07-20T04:23:08.154Z",
+            "modified": "2025-07-20T04:25:26.892Z",
+            "headers": []
+        },
+        {
+            "_id": "c7b4220b-296f-46a3-a216-755cecf90b16",
+            "colId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+            "containerId": "",
+            "name": "addStudent",
+            "url": "http://localhost:8080/api/v1/students",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-07-20T04:23:35.664Z",
+            "modified": "2025-07-20T13:44:26.894Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\":\"Miguel Angel\",\n  \"lastName\":\"Rojas Molina\",\n  \"email\":\"miguel_molina@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "78644fac-fc6c-4dbe-9440-5b625c2ce52d",
+            "colId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+            "containerId": "",
+            "name": "getStudentById",
+            "url": "http://localhost:8080/api/v1/students/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-07-20T04:24:52.696Z",
+            "modified": "2025-07-20T04:25:35.747Z",
+            "headers": []
+        },
+        {
+            "_id": "a4f28cd3-82b0-4f41-9a9b-b589ef38f10a",
+            "colId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+            "containerId": "",
+            "name": "updateStudent",
+            "url": "http://localhost:8080/api/v1/students/1",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-07-20T04:23:52.329Z",
+            "modified": "2025-07-20T13:36:54.837Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"studentId\": 1,\n  \"firstName\": \"Josué Francisco\",\n  \"lastName\": \"Pérez Pérez\",\n  \"email\": \"jfp_perez@hotmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "41da7e8b-a451-4e50-b1c4-fb9de6dab381",
+            "colId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+            "containerId": "",
+            "name": "delStudent",
+            "url": "http://localhost:8080/api/v1/students/1",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2025-07-20T04:24:14.047Z",
+            "modified": "2025-07-20T13:39:07.047Z",
+            "headers": []
+        },
+        {
+            "_id": "cc7a0338-2371-4210-a62b-c8f8967516a6",
+            "colId": "6090ca9f-cbe1-42f8-b47b-58656c12e3f1",
+            "containerId": "",
+            "name": "total_alumnos",
+            "url": "http://localhost:8080/api/v1/students/count_students",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2025-07-20T13:39:47.480Z",
+            "modified": "2025-07-20T13:42:38.058Z",
+            "headers": []
+        }
+    ],
+    "ref": "ClYMRNY0bmGSI_WCn9DEbY7TDL3CRwNjAd6DHgNsUK8oik3vjM0Ya7R4shaMFOdbHljgK9HhxdvCFc1FUnDNEQ"
+}

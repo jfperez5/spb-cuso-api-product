@@ -67,4 +67,6 @@ public class CategoriaServiceImpl implements CategoriaService {
         }
         categoriaRepository.deleteById(idCategoria);
     }
+
+    
 }

@@ -1,0 +1,81 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Categorias",
+    "collectionId": "a066c142-419e-4564-9a0f-bd71d2c8b05f",
+    "dateExported": "2025-07-21T02:54:10.215Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e21a75da-3fcf-418c-8a30-e7645cf87e3b",
+            "colId": "a066c142-419e-4564-9a0f-bd71d2c8b05f",
+            "containerId": "",
+            "name": "getCategorias",
+            "url": "http://localhost:8080/api/categorias",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-07-20T15:12:39.377Z",
+            "modified": "2025-07-20T15:13:23.061Z",
+            "headers": []
+        },
+        {
+            "_id": "a88d798d-dbf0-4210-a381-ad06807e05b4",
+            "colId": "a066c142-419e-4564-9a0f-bd71d2c8b05f",
+            "containerId": "",
+            "name": "addCategorias",
+            "url": "http://localhost:8080/api/categorias",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-07-20T15:14:02.720Z",
+            "modified": "2025-07-20T15:17:18.391Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombreCategoria\":\"Electrodomesticos\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "33836a6b-fd37-42b4-81a1-d8a3760b546c",
+            "colId": "a066c142-419e-4564-9a0f-bd71d2c8b05f",
+            "containerId": "",
+            "name": "getCategoriaById",
+            "url": "http://localhost:8080/api/categorias/3",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-07-20T15:20:38.438Z",
+            "modified": "2025-07-20T15:20:45.173Z",
+            "headers": []
+        },
+        {
+            "_id": "30518681-c18f-4e02-bf00-03a3763793de",
+            "colId": "a066c142-419e-4564-9a0f-bd71d2c8b05f",
+            "containerId": "",
+            "name": "updateCategoria",
+            "url": "http://localhost:8080/api/categorias/5",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2025-07-20T15:22:02.198Z",
+            "modified": "2025-07-20T15:22:44.581Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"idCategoria\": 5,\n    \"nombreCategoria\": \"Electrodomésticos\"\n  }",
+                "form": []
+            }
+        },
+        {
+            "_id": "93c708bd-9a79-4dcb-9818-d2878cc7b837",
+            "colId": "a066c142-419e-4564-9a0f-bd71d2c8b05f",
+            "containerId": "",
+            "name": "deleteCategoria",
+            "url": "http://localhost:8080/api/categorias/5",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2025-07-20T15:23:19.686Z",
+            "modified": "2025-07-20T15:23:49.747Z",
+            "headers": []
+        }
+    ],
+    "ref": "ul55iLgcq0220TsM7iuSI-FikqC6WhB7dnmASwd26OFJKtcvgOmWs5ZDbPtIWeAGtcBlkFmRWc6yXMtlvDOVjQ"
+}

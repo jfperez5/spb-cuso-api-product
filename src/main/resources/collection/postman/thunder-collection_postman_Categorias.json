@@ -1,0 +1,121 @@
+{
+    "info": {
+        "_postman_id": "1e76007b-8ec7-4cc4-8204-bc05288bbde9",
+        "name": "Categorias",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getCategorias",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/categorias",
+                    "path": [
+                        "api",
+                        "categorias"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "addCategorias",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8080/api/categorias",
+                    "path": [
+                        "api",
+                        "categorias"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"nombreCategoria\":\"Electrodomesticos\"\n}"
+                }
+            }
+        },
+        {
+            "name": "getCategoriaById",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/api/categorias/3",
+                    "path": [
+                        "api",
+                        "categorias",
+                        "3"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "updateCategoria",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:8080/api/categorias/5",
+                    "path": [
+                        "api",
+                        "categorias",
+                        "5"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"idCategoria\": 5,\n    \"nombreCategoria\": \"Electrodomésticos\"\n  }"
+                }
+            }
+        },
+        {
+            "name": "deleteCategoria",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:8080/api/categorias/5",
+                    "path": [
+                        "api",
+                        "categorias",
+                        "5"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        }
+    ]
+}

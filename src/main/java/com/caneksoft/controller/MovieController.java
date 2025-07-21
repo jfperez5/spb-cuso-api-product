@@ -12,19 +12,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.caneksoft.entity.Movie;
 import com.caneksoft.repository.MovieRepository;
 
-
-
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
-
+    
     @Autowired
     private MovieRepository movieRepository;
     
@@ -44,16 +42,15 @@ public class MovieController {
     @CrossOrigin
     @PostMapping
     public ResponseEntity<Movie>createMovie(@RequestBody Movie movie){
-        System.out.println("Recibido:");
-        System.out.println(movie);
+        // System.out.println("Recibido:");
+        // System.out.println(movie);
         Movie savedMovie = movieRepository.save(movie);
         return  ResponseEntity.status(HttpStatus.CREATED).body(savedMovie);
     }    
 
-
-     @CrossOrigin
-     @DeleteMapping("/{id}")
-     public ResponseEntity<Void> deleteMovie(@PathVariable Long id){
+    @CrossOrigin
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMovie(@PathVariable Long id){
         if(!movieRepository.existsById(id)){
             return ResponseEntity.notFound().build();
         }
@@ -69,7 +66,7 @@ public class MovieController {
             return ResponseEntity.notFound().build();
         }
 
-        updatedMovie.setId(id)
+        updatedMovie.setId(id);
         Movie savedMove = movieRepository.save(updatedMovie);
         return ResponseEntity.ok(savedMove);
      }
@@ -81,18 +78,18 @@ public class MovieController {
      if(!movieRepository.existsById(id)){
         return ResponseEntity.notFound().build();
      }
+    
+      Optional<Movie> optional = movieRepository.findById(id);
+      Movie movie = optional.get();
 
-     Optional<Movie> optional = movieRepository.findById(id);
-     Movie movie = optional.get();
+      double newRating = ( (movie.getVotes() * movie.getRating()) + rating ) /(movie.getVotes());
 
-    double newRating = ( (movie.getVotes() * movie.getRating()) + rating ) /(movie.getVotes());
+      movie.setVotes(movie.getVotes() + 1);
+      movie.setRating(newRating);
 
-     movie.setVotes(movie.getVotes() + 1);
-     movie.setRating(newRating);
-
-     Movie savedMove = movieRepository.save(movie);
+      Movie savedMove = movieRepository.save(movie);
      return ResponseEntity.ok(savedMove);
-    }
-}
 
-// @CrossOrigin se establece para indicar a Spring Boot que este metodo se podrá usar desde sistema fuera de spring ejm: React, Vue, Angular, etc.
+    }
+
+}
